@@ -1,0 +1,22 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "circleci.notifications.statusFilter": {
+        "canceled": true,
+        "error": true,
+        "failed": true,
+        "failing": true,
+        "not_run": true,
+        "on_hold": true,
+        "success": true,
+        "unauthorized": true
+    }
+}
