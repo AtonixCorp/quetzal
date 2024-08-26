@@ -1,0 +1,34 @@
+
+# Local Netlify folder
+.netlify
+
+# Environment variables
+.env
+
+# Node.js dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+
+# IDE and editor settings
+.vscode/
+
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Java compiled files
+target/
+*.class
+
+# Build artifacts
+dist/
+build/
+
+myenv/
