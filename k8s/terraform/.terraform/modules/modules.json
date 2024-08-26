@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"delegate","Source":"registry.terraform.io/harness/harness-delegate/kubernetes","Version":"0.1.8","Dir":".terraform/modules/delegate"}]}
