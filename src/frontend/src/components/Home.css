@@ -1,0 +1,166 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+  color: #343a40;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+header.tiny-text h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0d9494;
+  margin-bottom: 10px;
+}
+
+header.tiny-text p.lead {
+  font-size: 0.75rem;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d9494;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0d9494;
+}
+
+h3 {
+  color: #0d9494;
+}
+
+p.lead {
+  font-size: 1rem;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+.service-card {
+  border: 1px solid #0d9494;
+  border-radius: 8px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.3s;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-weight: bold;
+  color: #0d9494;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.vertical-line {
+  border-left: 2px solid #0d9494;
+  height: 30px;
+  margin: 0 10px;
+}
+
+a {
+  color: #0d9494;
+}
+
+a:hover,
+a:focus {
+  color: #0a6d6d;
+}
+
+.btn-primary {
+  background-color: #0d9494;
+  border-color: #0d9494;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0a6d6d;
+  border-color: #0a6d6d;
+}
+
+.services-heading {
+  color: #0d9494;
+}
+
+.services-subheading {
+  color: #6c757d;
+}
+
+.text-center h3 {
+  font-size: 2.5rem;
+  color: #343a40;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.text-center p {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 25px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+@media (max-width: 576px) {
+  .text-center h3 {
+    font-size: 2rem;
+  }
+
+  .text-center p {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
