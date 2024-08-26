@@ -27,7 +27,7 @@ setup(
         "scipy==1.7.1",
         "cython==0.29.24",
         "requests==2.26.0",
-        "flask==2.0.1"
+        "flask==2.2.5"
     ],
     entry_points={
         'console_scripts': [
