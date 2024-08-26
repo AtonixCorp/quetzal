@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_atonixcorp_atonixcorp_1724477378707-pr-trigger-input-set
+  identifier: Build_atonixcorp_atonixcorp_1724477378707prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: AtonixCorp
+  pipeline:
+    identifier: Build_atonixcorp_atonixcorp_1724477378707
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
