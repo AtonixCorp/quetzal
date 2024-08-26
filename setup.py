@@ -21,7 +21,7 @@ setup(
         "seaborn>=0.11.1",
         "pyspark>=3.5.1",
         "tensorflow>=2.16.0",
-        "torch==1.12.1",
+        "torch==2.2.0",
         "Qiskit==0.34.0",
         "bokeh==3.5.1",
         "scipy==1.7.1",
