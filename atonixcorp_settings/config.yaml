@@ -1,4 +1,4 @@
-# harness.yaml
+
 application:
   name: AtonixCorp
   description: hardware software
@@ -17,11 +17,11 @@ application:
         - name: DevInfraatonixcorp
           cloudProviderType: Kubernetes
           namespace: dev-atonixcorp
-    workflow:
+  workflows:  
     - name: DeployToDev
       type: Basic
       steps:
         - stepType: DeployService
-          serviceName: atonixcorpservices
+          serviceName: atonixcorp
           environmentName: Dev_atonixcorp
           infrastructureDefinitionName: DevInfraatonixcorp
