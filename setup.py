@@ -26,7 +26,7 @@ setup(
         "bokeh==3.5.1",
         "scipy==1.7.1",
         "cython==0.29.24",
-        "requests==2.26.0",
+        "requests==2.32.2",
         "flask==2.0.1"
     ],
     entry_points={
