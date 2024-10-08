@@ -1,0 +1,65 @@
+
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  margin-right: 0%;
+  margin-left: 0%;
+}
+
+
+.main-home-grid {
+  flex: 1;
+  margin-left: 0px;
+  display: grid;
+  grid-template-columns: 0.5fr 3.5fr;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.part {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.part1 {
+  background-color: #000;
+}
+
+.part2 {
+  background-color: #e9ecef;
+}
+
+.part3 {
+  background-color: #000;
+}
+
+

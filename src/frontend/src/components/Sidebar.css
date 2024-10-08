@@ -1,0 +1,28 @@
+.sidebar {
+  width: 250px;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-secondary-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+  margin-bottom: 20px;
+}
+
+.topic-section {
+  margin-bottom: 15px;
+}
+
+.topic-title {
+  cursor: pointer;
+  color: var(--bs-primary-color);
+  margin-bottom: 5px;
+}
+
+.topic-content {
+  background-color: var(--bs-secondary-bg);
+  padding: 10px;
+  border-radius: 4px;
+}
