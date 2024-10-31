@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug React App",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/node_modules/react-scripts/scripts/start.js",
+            "args": [
+                "start"
+            ],
+            "runtimeArgs": [
+                "--inspect-brk"
+            ],
+            "cwd": "${workspaceFolder}",
+            "protocol": "inspector",
+            "port": 9229,
+            "env": {
+                "NODE_ENV": "development",
+                "BABEL_ENV": "development"
+            },
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}
