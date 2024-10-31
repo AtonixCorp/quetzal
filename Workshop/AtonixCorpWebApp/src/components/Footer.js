@@ -214,6 +214,30 @@ const Footer = () => {
             </form>
           </div>
 
+          <div className="col-6 col-md-2 mb-3">
+            <h5>Contact</h5>
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a
+                  href="mailto:support@atonixcorp.atlassian.net"
+                  className="nav-link p-0 text-body-secondary"
+                >
+                  Email Us
+                </a>
+              </li>
+              <li className="nav-item mb-2">
+                <a
+                  href="https://atonixcorp.atlassian.net/servicedesk/customer/portal/3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-link p-0 text-body-secondary"
+                >
+                  Help Center
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
             <p>&copy; 2024 AtonixCorp Organization All rights reserved.</p>
             <div className="d-flex">
