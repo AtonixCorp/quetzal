@@ -1,7 +1,7 @@
 [build]
   base = "Workshop/AtonixCorpWebApp"
   publish = "Workshop/AtonixCorpWebApp/public"
-  command = "cd Workshop/AtonixCorpWebApp && git lfs install && git lfs pull && npm run build"
+  command = "cd Workshop/AtonixCorpWebApp && npm run build"
 
 [dev]
   command = "npm start"
