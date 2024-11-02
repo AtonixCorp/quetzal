@@ -1,2 +1,23 @@
+# Cryptography Libraries
+cryptography
+pycryptodome
+
+# Machine Learning and AI Libraries
+tensorflow
+keras
+scikit-learn
+torch
+xgboost
+
+# Data Science Libraries
+numpy
+pandas
+matplotlib
+seaborn
+scipy
+statsmodels
+jupyter
+
+# Django and Django REST Framework
 djangorestframework-simplejwt
 djangorestframework

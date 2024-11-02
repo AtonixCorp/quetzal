@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 import ContactUs from '../account/ContactUs';
+import { getPosts, getComments } from '../api'; // Import the API service
 
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const toggleContactForm = () => {
     setShowContactForm(!showContactForm);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const postsData = await getPosts();
+      setPosts(postsData);
+      const commentsData = await getComments();
+      setComments(commentsData);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="container">
@@ -64,6 +77,21 @@ const Home = () => {
         </button>
       </section>
       {showContactForm && <ContactUs />}
+
+      <section>
+        <h2 className="text-center">Posts</h2>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>{post.title}</li>
+          ))}
+        </ul>
+        <h2 className="text-center">Comments</h2>
+        <ul>
+          {comments.map((comment) => (
+            <li key={comment.id}>{comment.content}</li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 };
