@@ -21,3 +21,5 @@ jupyter
 # Django and Django REST Framework
 djangorestframework-simplejwt
 djangorestframework
+
+qiskit
