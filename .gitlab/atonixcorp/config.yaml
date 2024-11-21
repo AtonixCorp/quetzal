@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: atonixcorp
+  namespace: atonixcorp-agent
+data:
+  config.yaml: |
+    agents:
+      atonixcorp:
+        token:

@@ -1,0 +1,46 @@
+version: 2.1
+
+executors:
+  docker-executor:
+    docker:
+      - image: circleci/python:3.8 # Use an appropriate base image
+    working_directory: ~/repo
+
+jobs:
+  build:
+    executor: docker-executor
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 20.10.7
+      - run:
+          name: Build Docker Image
+          command: |
+            docker build -t ofidohubvm/atonixcorp:latest .
+      - run:
+          name: Push Docker Image
+          command: |
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+            docker push ofidohubvm/atonixcorp:latest
+
+  deploy:
+    executor: docker-executor
+    steps:
+      - setup_remote_docker:
+          version: 20.10.7
+      - run:
+          name: Run Docker Container
+          command: |
+            docker run -d -p 8000:8000 --name atonixcorp-container ofidohubvm/atonixcorp:latest
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+    notify:
+      webhooks:
+        - url: https://api.atlassian.com/jsm/ops/integration/v1/json/circleci?apiKey=2ad1658f-8070-4b52-bf83-8f53daf33341
