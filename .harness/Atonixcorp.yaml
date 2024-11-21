@@ -1,0 +1,77 @@
+pipeline:
+  name: Atonixcorp Deployment Pipeline
+  identifier: atonixcorp_deployment_pipeline
+  projectIdentifier: atonixcorp_project
+  orgIdentifier: atonixcorp_org
+  stages:
+    - stage:
+        name: Deploy to Kubernetes
+        identifier: deploy_to_kubernetes
+        type: Deployment
+        spec:
+          serviceConfig:
+            serviceRef: atonixcorp_service
+            serviceDefinition:
+              type: Kubernetes
+              spec:
+                variables: []
+          infrastructure:
+            environmentRef: atonixcorp_environment
+            infrastructureDefinition:
+              type: KubernetesDirect
+              spec:
+                connectorRef: atonixcorp_k8s_connector
+                namespace: atonixcorpharness
+                releaseName: atonixcorp_release
+          execution:
+            steps:
+              - step:
+                  name: Deploy
+                  identifier: deploy
+                  type: K8sRollingDeploy
+                  spec:
+                    timeout: 10m
+                    skipDryRun: false
+                    pruningEnabled: false
+                    canaryStep: false
+                    resources:
+                      manifests:
+                        - manifest:
+                            identifier: atonixcorp_manifest
+                            type: K8sManifest
+                            spec:
+                              store:
+                                type: Git
+                                spec:
+                                  connectorRef: atonixcorp_git_connector
+                                  repoName: atonixcorp_repo
+                                  branch: main
+                                  paths:
+                                    - manifests/
+                              skipResourceVersioning: false
+                    variables: []
+              - step:
+                  name: Verify
+                  identifier: verify
+                  type: K8sRollingRollback
+                  spec:
+                    timeout: 10m
+                    skipDryRun: false
+                    pruningEnabled: false
+                    canaryStep: false
+                    resources:
+                      manifests:
+                        - manifest:
+                            identifier: atonixcorp_manifest
+                            type: K8sManifest
+                            spec:
+                              store:
+                                type: Git
+                                spec:
+                                  connectorRef: atonixcorp_git_connector
+                                  repoName: atonixcorp_repo
+                                  branch: main
+                                  paths:
+                                    - manifests/
+                              skipResourceVersioning: false
+                    variables: []
