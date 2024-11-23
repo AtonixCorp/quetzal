@@ -17,9 +17,14 @@ seaborn
 scipy
 statsmodels
 jupyter
+scipy
+scikit-image
 
 # Django and Django REST Framework
 djangorestframework-simplejwt
 djangorestframework
+django-cors-headers
 
+#computational libraries
 qiskit
+qutip

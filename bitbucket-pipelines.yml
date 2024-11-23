@@ -1,60 +1,21 @@
-image: atlassian/default-image:3
+image: python:3.8
 
 pipelines:
   default:
     - parallel:
         - step:
-            name: Build and Test
-            runs-on:
-              - self.hosted
-              - linux
-            script:
-              - IMAGE_NAME=$BITBUCKET_REPO_SLUG
-              - docker build . --file Dockerfile --tag ${IMAGE_NAME}
-            services:
-              - docker
+            name: Test
             caches:
-              - docker
-        - step:
-            name: Lint the Dockerfile
-            image: hadolint/hadolint:latest-debian
+              - pip
             script:
-              - hadolint Dockerfile
-  branches:
-    master:
-      - step:
-          name: Build and Test
-          runs-on:
-            - self.hosted
-            - linux
-          script:
-            - IMAGE_NAME=$BITBUCKET_REPO_SLUG
-            - docker build . --file Dockerfile --tag ${IMAGE_NAME}
-            - docker save ${IMAGE_NAME} --output "${IMAGE_NAME}.tar"
-          services:
-            - docker
-          caches:
-            - docker
-          artifacts:
-            - "*.tar"
-      - step:
-          name: Deploy to Production
-          runs-on:
-            - self.hosted
-            - linux
-          deployment: Production
-          script:
-            - echo ${DOCKERHUB_PASSWORD} | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
-            - IMAGE_NAME=$BITBUCKET_REPO_SLUG
-            - docker load --input "${IMAGE_NAME}.tar"
-            - VERSION="prod-0.1.${BITBUCKET_BUILD_NUMBER}"
-            - IMAGE=${DOCKERHUB_NAMESPACE}/${IMAGE_NAME}
-            - docker tag "${IMAGE_NAME}" "${IMAGE}:${VERSION}"
-            - docker push "${IMAGE}:${VERSION}"
-          services:
-            - docker
-
-definitions:
-  services:
-    docker:
-      memory: 2048
+              - cd Workshop/AtonixCorp
+              - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+              - pip install pytest
+              - pytest -v tests/* --junitxml=test-reports/report.xml
+        - step:
+            name: Lint code
+            script:
+              - cd Workshop/AtonixCorp
+              # Enforce style consistency across Python projects https://flake8.pycqa.org
+              - pip install flake8
+              - flake8 . --extend-exclude=dist,build --show-source --statistics

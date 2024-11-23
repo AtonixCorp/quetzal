@@ -1,18 +1,13 @@
-FROM python:3.9-slim
 
+FROM python:3.9.20-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-
 EXPOSE 8000
 
-
-ENV PYTHONUNBUFFERED=1
-
-CMD ["python", "manage.py", "runserver", "192.168.1.100:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
