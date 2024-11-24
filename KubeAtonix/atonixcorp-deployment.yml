@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atonixcorp-deployment
+  namespace: atonixcorp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atonixcorp
+  template:
+    metadata:
+      labels:
+        app: atonixcorp
+    spec:
+      containers:
+        - name: atonixcorp-main
+          image: registry.gitlab.com/atonixcorp_organization/atonixcorp:latest
+          ports:
+            - containerPort: 80
+        - name: atonixcorp-personal
+          image: ofidohubvm/atonixcorp:latest
+          ports:
+            - containerPort: 8080
+        - name: atonixcorp-doc-org
+          image: ofidohubvmdoc/atonixcorp:latest
+          ports:
+            - containerPort: 8081
+      imagePullSecrets:
+        - name: guxegdsa-pull-secret
+        - name: gitlab-pull-secret
+        - name: github-pull-secret
+        - name: dockerhub-pull-secret
