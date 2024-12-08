@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './Header.css'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
     const [showLanguage, setShowLanguage] = useState(false);
+    const [dropdown, setDropdown] = useState(null);
+    const navigate = useNavigate();
 
     const toggleSearch = () => {
         setShowSearch(!showSearch);
@@ -17,6 +20,10 @@ const Header = () => {
         setShowSearch(false); // Hide search input if language dropdown is shown
     };
 
+    const toggleDropdown = (menu) => {
+        setDropdown(dropdown === menu ? null : menu);
+    };
+
     return (
         <div className="navbar">
             <div className="logo-container">
@@ -25,14 +32,154 @@ const Header = () => {
                     alt="Logo"
                     className="logo"
                 />
-                <span className="logo-text">Atonixcorp</span>
+                <span className="logo-text">ATONIXCORP</span>
             </div>
             <div className="nav">
-                <span className="nav-item">Developments</span>
-                <span className="nav-item">Community</span>
-                <span className="nav-item">Products</span>
-                <span className="nav-item">Support</span>
-                <span className="nav-item">Company</span>
+                <div 
+                    className="nav-item" 
+                    onClick={() => toggleDropdown('developments')}
+                    onKeyDown={(e) => e.key === 'Enter' && toggleDropdown('developments')}
+                    role="button"
+                    tabIndex={0}
+                >
+                    Developments <FontAwesomeIcon icon={faCaretDown} />
+                    {dropdown === 'developments' && (
+                        <div className="dropdown">
+                            <span 
+                                onClick={() => navigate('/developments/project1')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/developments/project1')}
+                            >
+                                Project 1
+                            </span>
+                            <span 
+                                onClick={() => navigate('/developments/project2')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/developments/project2')}
+                            >
+                                Project 2
+                            </span>
+                        </div>
+                    )}
+                </div>
+                <div 
+                    className="nav-item" 
+                    onClick={() => toggleDropdown('community')}
+                    onKeyDown={(e) => e.key === 'Enter' && toggleDropdown('community')}
+                    role="button"
+                    tabIndex={0}
+                >
+                    Community <FontAwesomeIcon icon={faCaretDown} />
+                    {dropdown === 'community' && (
+                        <div className="dropdown">
+                            <span 
+                                onClick={() => navigate('/community/event1')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/community/event1')}
+                            >
+                                Event 1
+                            </span>
+                            <span 
+                                onClick={() => navigate('/community/event2')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/community/event2')}
+                            >
+                                Event 2
+                            </span>
+                        </div>
+                    )}
+                </div>
+                <div 
+                    className="nav-item" 
+                    onClick={() => toggleDropdown('products')}
+                    onKeyDown={(e) => e.key === 'Enter' && toggleDropdown('products')}
+                    role="button"
+                    tabIndex={0}
+                >
+                    Products <FontAwesomeIcon icon={faCaretDown} />
+                    {dropdown === 'products' && (
+                        <div className="dropdown">
+                            <span 
+                                onClick={() => navigate('/products/product1')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/products/product1')}
+                            >
+                                Product 1
+                            </span>
+                            <span 
+                                onClick={() => navigate('/products/product2')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/products/product2')}
+                            >
+                                Product 2
+                            </span>
+                        </div>
+                    )}
+                </div>
+                <div 
+                    className="nav-item" 
+                    onClick={() => toggleDropdown('support')}
+                    onKeyDown={(e) => e.key === 'Enter' && toggleDropdown('support')}
+                    role="button"
+                    tabIndex={0}
+                >
+                    Support <FontAwesomeIcon icon={faCaretDown} />
+                    {dropdown === 'support' && (
+                        <div className="dropdown">
+                            <span 
+                                onClick={() => navigate('/support/faq')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/support/faq')}
+                            >
+                                FAQ
+                            </span>
+                            <span 
+                                onClick={() => navigate('/support/contact')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/support/contact')}
+                            >
+                                Contact
+                            </span>
+                        </div>
+                    )}
+                </div>
+                <div 
+                    className="nav-item" 
+                    onClick={() => toggleDropdown('company')}
+                    onKeyDown={(e) => e.key === 'Enter' && toggleDropdown('company')}
+                    role="button"
+                    tabIndex={0}
+                >
+                    Company <FontAwesomeIcon icon={faCaretDown} />
+                    {dropdown === 'company' && (
+                        <div className="dropdown">
+                            <span 
+                                onClick={() => navigate('/company/about')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/company/about')}
+                            >
+                                About Us
+                            </span>
+                            <span 
+                                onClick={() => navigate('/company/careers')} 
+                                role="button" 
+                                tabIndex={0} 
+                                onKeyDown={(e) => e.key === 'Enter' && navigate('/company/careers')}
+                            >
+                                Careers
+                            </span>
+                        </div>
+                    )}
+                </div>
             </div>
             <div className="icon-container">
                 <FontAwesomeIcon icon={faSearch} className="icon search-icon" onClick={toggleSearch} />
@@ -46,12 +193,11 @@ const Header = () => {
                         <option value="es">Spanish</option>
                         <option value="fr">French</option>
                         <option value="de">German</option>
-                        
                     </select>
                 )}
             </div>
             <button className="cta-button">
-                <span className="cta-text">Log on to Hub</span>
+                <span className="cta-text">Log In To Hub</span>
             </button>
         </div>
     );

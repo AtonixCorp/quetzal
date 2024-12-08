@@ -16,16 +16,22 @@ const Menu = () => {
     'Networking',
     'Cloud Computing',
     'Big Data',
-    
     'DevOps',
   ];
+
   const toggleMenu = () => {
     setIsOpen(!isOpen); // Toggle the menu open/close state
   };
 
   return (
     <nav className="menu">
-      <div className="menu-toggle" onClick={toggleMenu}>
+      <div 
+        className="menu-toggle" 
+        onClick={toggleMenu}
+        onKeyDown={(e) => e.key === 'Enter' && toggleMenu()}
+        role="button"
+        tabIndex={0}
+      >
         {/* Hamburger icon */}
         <span className={`bar ${isOpen ? 'open' : ''}`}></span>
         <span className={`bar ${isOpen ? 'open' : ''}`}></span>
