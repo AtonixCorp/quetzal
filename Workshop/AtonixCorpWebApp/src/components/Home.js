@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
+import ContactUs from '../account/ContactUs';
+import { getPosts, getComments } from '../api'; // Import the API service
 
 const Home = () => {
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+
+  const toggleContactForm = () => {
+    setShowContactForm(!showContactForm);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const postsData = await getPosts();
+      setPosts(postsData);
+      const commentsData = await getComments();
+      setComments(commentsData);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="container">
-      <header className="text-center my-5 tiny-text hero">
-        <h1>
-          AtonixCorp is a <span className="highlight">Cutting Edge Technology Company</span> Empowering Innovation
-          Through Data Analytics 🌐
-        </h1>
-        <p className="lead">
-          Transforming Industries with Data-Driven Solutions
-        </p>
-      </header>
-
       <section>
         <h2 className="text-center services-heading">Our Services</h2>
         <div className="row">
@@ -77,6 +87,33 @@ const Home = () => {
             url="#"
           />
         </div>
+      </section>
+
+      <section className="text-center my-5">
+        <h3>Join Us on Our Journey!</h3>
+        <p>
+          At AtonixCorp, we believe that innovation is driven by passionate
+          individuals. Explore career opportunities with us.
+        </p>
+        <button className="btn btn-primary" onClick={toggleContactForm}>
+          Contact Us
+        </button>
+      </section>
+      {showContactForm && <ContactUs />}
+
+      <section>
+        <h2 className="text-center">Posts</h2>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>{post.title}</li>
+          ))}
+        </ul>
+        <h2 className="text-center">Comments</h2>
+        <ul>
+          {comments.map((comment) => (
+            <li key={comment.id}>{comment.content}</li>
+          ))}
+        </ul>
       </section>
     </div>
   );

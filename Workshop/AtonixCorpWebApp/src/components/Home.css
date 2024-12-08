@@ -10,7 +10,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0px;
+  padding: 20px;
 }
 
 header {
@@ -102,8 +102,34 @@ p.lead {
   color: #004d4d;
 }
 
-@media (max-width: 576px) {
+.sidebar {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
 
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #0d9494;
+  font-weight: 600;
+}
+
+.sidebar ul li a:hover {
+  color: #0a6d6d;
+}
+
+@media (max-width: 576px) {
   .service-card,
   .coding-project {
     flex: 0 0 100%;

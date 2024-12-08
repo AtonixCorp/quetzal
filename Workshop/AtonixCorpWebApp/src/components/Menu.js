@@ -14,7 +14,9 @@ const Menu = () => {
     'Software Development',
     'Cybersecurity',
     'Networking',
-
+    'Cloud Computing',
+    'Big Data',
+    
     'DevOps',
   ];
   const toggleMenu = () => {
