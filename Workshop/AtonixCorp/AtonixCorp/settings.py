@@ -1,10 +1,8 @@
-
 import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -16,12 +14,6 @@ SECRET_KEY = "django-insecure-vrnlh1mn+mens(%=rzjv4mzse4e$=1@-bb^9!d#k40t8c@_%y+
 DEBUG = True
 
 ALLOWED_HOSTS = []
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-
-
 
 # Application definition
 
@@ -38,10 +30,9 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "allauth",
     "allauth.account",
-    "rest_auth",
     "allauth.socialaccount",
+    "rest_auth",
     "django_filters",
-
     "rest_framework_simplejwt",
     "rest_framework_json_api",
 ]
@@ -55,9 +46,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "allauth.account.middleware.AuthenticationMiddleware",
-    "allauth.socialaccount.middleware.SocialAccountMiddleware",
-    "allauth.socialaccount.middleware.SocialLogin",
     "allauth.account.middleware.AccountMiddleware",
 ]
 
@@ -81,7 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "AtonixCorp.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -91,7 +78,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -111,7 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -122,7 +107,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -135,20 +119,26 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'AtonixCorpApp/static')]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 # Django Rest Framework
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-         
     ),
- 'DEFAULT_PARSER_CLASSES': (
+    'DEFAULT_PARSER_CLASSES': (
         'rest_framework_json_api.parsers.JSONParser',
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework_json_api.renderers.JSONRenderer',
     ),
-
-     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
+# CORS settings
+CORS_ORIGIN_ALLOW_ALL = True  # Allow all origins (for development only)
+# or specify allowed origins
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+SITE_ID = 1
