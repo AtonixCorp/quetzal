@@ -1,65 +1,137 @@
-
-
+/* App.css */
 
 html,
 body {
+  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+  line-height: 1.6;
 }
 
 #root {
-  height: 100%;
-
   display: flex;
   flex-direction: column;
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-
-  margin-right: 0%;
-  margin-left: 0%;
-}
-
-
-.main-home-grid {
-  flex: 1;
-  margin-left: 0px;
-  display: grid;
-  grid-template-columns: 0.5fr 3.5fr;
-  height: 100%;
+  min-height: 100%;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-.part {
-  padding: 20px;
-  overflow-y: auto;
+header {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.part1 {
-  background-color: #000;
+header.tiny-text h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d9494;
+  margin-bottom: 10px;
 }
 
-.part2 {
-  background-color: #e9ecef;
+header.tiny-text p.lead {
+  font-size: 1rem;
+  color: #343a40;
+  margin-bottom: 10px;
 }
 
-.part3 {
-  background-color: #000;
+h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d9494;
+  margin-bottom: 15px;
 }
 
+h2 {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0d9494;
+}
 
+h3 {
+  color: #0d9494;
+}
+
+p.lead {
+  font-size: 1rem;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+.service-card,
+.coding-project {
+  border: 1px solid #0d9494;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.services-heading,
+.expert-coding h2 {
+  color: #0d9494;
+}
+
+.btn-primary {
+  background-color: #0d9494;
+  border-color: #0d9494;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0a6d6d;
+  border-color: #0a6d6d;
+}
+
+.hero {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  clip-path: ellipse(100% 75% at 50% 25%);
+}
+
+.highlight {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #004d4d;
+}
+
+footer {
+  width: 100%;
+  background-color: #0d9494;
+  color: white;
+  padding: 20px 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+footer strong {
+  display: block;
+  margin-top: 10px;
+}
+
+@media (max-width: 576px) {
+
+  .service-card,
+  .coding-project {
+    flex: 0 0 100%;
+  }
+}

@@ -1,40 +1,19 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import './Sidebar.css';
 
-const Sidebar = ({ topics }) => {
-  const [activeTopic, setActiveTopic] = useState(null);
-
-  const toggleTopic = (index) => {
-    setActiveTopic(activeTopic === index ? null : index);
-  };
-
+const Sidebar = () => {
   return (
-    <aside className="sidebar">
-      <h2 className="sidebar-title">Explore Cutting-Edge Topics</h2>
-      {topics.map((topic, index) => (
-        <section key={index} className="topic-section">
-          <h3 className="topic-title" onClick={() => toggleTopic(index)}>
-            {topic.title}
-          </h3>
-          {activeTopic === index && (
-            <div className="topic-content">
-              <p>{topic.content}</p>
-            </div>
-          )}
-        </section>
-      ))}
-    </aside>
+    <div className="sidebar">
+      <ul>
+        <li><button className="sidebar-link" onClick={() => alert('Data Analytics clicked')}>Data Analytics</button></li>
+        <li><button className="sidebar-link" onClick={() => alert('IoT Solutions clicked')}>IoT Solutions</button></li>
+        <li><button className="sidebar-link" onClick={() => alert('Agriculture Technology clicked')}>Agriculture Technology</button></li>
+        <li><button className="sidebar-link" onClick={() => alert('Oil Technology Research clicked')}>Oil Technology Research</button></li>
+        <li><button className="sidebar-link" onClick={() => alert('Security Research clicked')}>Security Research</button></li>
+        <li><button className="sidebar-link" onClick={() => alert('Robotic and Computational Solutions clicked')}>Robotic and Computational Solutions</button></li>
+      </ul>
+    </div>
   );
-};
-
-Sidebar.propTypes = {
-  topics: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export default Sidebar;
