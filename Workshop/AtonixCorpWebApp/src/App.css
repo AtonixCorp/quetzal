@@ -1,65 +1,24 @@
+/* App.css */
 
-
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+.main-container {
+  display: flex;
+  padding-top: 20px; /* Add some padding to avoid overlap with the Herosection */
 }
 
-#root {
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.sidebar {
+  width: 20%; /* Adjusted width for sidebar */
+  background-color: #0d9494;
+  color: white;
+  height: 70vh; /* Calculate height to be 70% of the viewport height */
+  overflow-y: auto; /* Make the sidebar scrollable */
+  padding: 20px;
+  position: sticky;
+  top: 30%; /* Adjust top to be 30% below the top */
 }
 
 .content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-
-  margin-right: 0%;
-  margin-left: 0%;
-}
-
-
-.main-home-grid {
-  flex: 1;
-  margin-left: 0px;
-  display: grid;
-  grid-template-columns: 0.5fr 3.5fr;
-  height: 100%;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.part {
+  width: 80%; /* Adjusted width for main content */
+  margin-left: 20%;
   padding: 20px;
-  overflow-y: auto;
+  background-color: #f8f9fa;
 }
-
-.part1 {
-  background-color: #000;
-}
-
-.part2 {
-  background-color: #e9ecef;
-}
-
-.part3 {
-  background-color: #000;
-}
-
-
