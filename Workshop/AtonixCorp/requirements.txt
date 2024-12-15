@@ -1,58 +1,24 @@
-# Cryptography Libraries
-cryptography
-pycryptodome
-
-# Machine Learning and AI Libraries
-tensorflow
-keras
-scikit-learn
-torch
-xgboost
-
-# Data Science Libraries
-numpy
-pandas
-matplotlib
-seaborn
-scipy
-statsmodels
-jupyter
-scikit-image
-
 # Django and Django REST Framework
-djangorestframework-simplejwt
+django>=3.2,<4.0
 djangorestframework
+djangorestframework-simplejwt
 django-cors-headers
+django-allauth
+django-rest-auth
+django-environ
 
-# Computational Libraries
-qiskit
-qutip
+# Debugging
+django-debug-toolbar
 
-# Cloud Computing Libraries
-boto3
-google-cloud-storage
-azure-storage-blob
+# Additional management commands
+django-extensions
 
-# Security Libraries
-paramiko
-requests
-flask
-flask-jwt-extended
+# PostgreSQL database adapter
+psycopg2-binary
 
-# Medical Research Libraries
-biopython
-pymed
-lifelines
+# WSGI HTTP server
+gunicorn
 
-# Agro Cloud IoT Libraries
-paho-mqtt
-aws-iot-device-sdk
-azure-iot-device
+# New dependencies for the rest of your installed apps
+djangorestframework-jsonapi
 
-# Additional Libraries for Various Needs
-opencv-python
-pillow
-sqlalchemy
-psycopg2
-celery
-redis

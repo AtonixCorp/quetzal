@@ -1,0 +1,54 @@
+name: atonixcorpcloud
+channels:
+  - defaults
+  - conda-forge
+  - anaconda
+  - pytorch
+dependencies:
+  - python=3.8
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scipy
+  - statsmodels
+  - jupyter
+  - scikit-image
+  - tensorflow
+  - keras
+  - scikit-learn
+  - xgboost
+  - qiskit
+  - qutip
+  - boto3
+  - google-cloud-storage
+  - azure-storage-blob
+  - paramiko
+  - requests
+  - flask
+  - flask-jwt-extended
+  - django
+  - djangorestframework
+  - django-cors-headers
+  - django-environ
+  - channels
+  - cryptography
+  - pycryptodome
+  - biopython
+  - sqlalchemy
+  - psycopg2
+  - celery
+  - redis
+  - gunicorn
+  - pip
+  - pip:
+      - torch
+      - pymed
+      - opencv-python
+      - channels-redis
+      - azure-iot-device
+      - Flask
+      - Flask-Cors
+      - Flask-RESTful
+      - gunicorn
+

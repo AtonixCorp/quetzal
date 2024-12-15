@@ -13,8 +13,14 @@ SECRET_KEY = "django-insecure-vrnlh1mn+mens(%=rzjv4mzse4e$=1@-bb^9!d#k40t8c@_%y+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# settings.py
 
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'localhost',
+    '127.0.0.1',
+    '192.168.137.123',  
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -32,7 +38,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_auth",
-    "django_filters",
+   "django_filters",
     "rest_framework_simplejwt",
     "rest_framework_json_api",
 ]
