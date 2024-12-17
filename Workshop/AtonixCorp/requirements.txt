@@ -17,7 +17,6 @@ seaborn
 scipy
 statsmodels
 jupyter
-scipy
 scikit-image
 
 # Django and Django REST Framework
@@ -25,6 +24,35 @@ djangorestframework-simplejwt
 djangorestframework
 django-cors-headers
 
-#computational libraries
+# Computational Libraries
 qiskit
 qutip
+
+# Cloud Computing Libraries
+boto3
+google-cloud-storage
+azure-storage-blob
+
+# Security Libraries
+paramiko
+requests
+flask
+flask-jwt-extended
+
+# Medical Research Libraries
+biopython
+pymed
+lifelines
+
+# Agro Cloud IoT Libraries
+paho-mqtt
+aws-iot-device-sdk
+azure-iot-device
+
+# Additional Libraries for Various Needs
+opencv-python
+pillow
+sqlalchemy
+psycopg2
+celery
+redis
