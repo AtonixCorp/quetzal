@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: atonixcorp-deployment
+  name: atonixcorp-cloud
   namespace: atonixcorp
 spec:
   replicas: 1
@@ -22,12 +22,3 @@ spec:
           image: ofidohubvm/atonixcorp:latest
           ports:
             - containerPort: 8080
-        - name: atonixcorp-doc-org
-          image: ofidohubvmdoc/atonixcorp:latest
-          ports:
-            - containerPort: 8081
-      imagePullSecrets:
-        - name: guxegdsa-pull-secret
-        - name: gitlab-pull-secret
-        - name: github-pull-secret
-        - name: dockerhub-pull-secret
