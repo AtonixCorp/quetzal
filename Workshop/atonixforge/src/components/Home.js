@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 import ContactUs from '../account/ContactUs';
-import { getPosts, getComments } from '../api'; // Import the API service
+import { getPosts, getComments } from '../api';
 
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
 
   const toggleContactForm = () => {
     setShowContactForm(!showContactForm);
@@ -16,13 +17,22 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const postsData = await getPosts();
-      setPosts(postsData);
-      const commentsData = await getComments();
-      setComments(commentsData);
+      try {
+        const postsData = await getPosts();
+        setPosts(postsData);
+        const commentsData = await getComments();
+        setComments(commentsData);
+      } catch (error) {
+        setError(error);
+        console.error('Error fetching data:', error);
+      }
     };
     fetchData();
   }, []);
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="container">
