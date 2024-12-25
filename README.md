@@ -92,8 +92,8 @@ Join the AtonixCorp community and stay connected!
 
 ## Contact Information
 For any questions or support, please contact:
-- **Project Manager**: Samuel ([guxegdsa@atonixcorp.com](mailto:guxegdsa@atonixcorp.com))
-- **Technical Lead**: Samuel ([guxegdsa@atonixcorp.com](mailto:guxegdsa@atonixcorp.com))
+- **Project Manager**: Samuel ([guxegdsa@atonixcorp.org](mailto:guxegdsa@atonixcorp.org))
+- **Technical Lead**: Samuel ([guxegdsa@atonixcorp.org](mailto:guxegdsa@atonixcorp.org))
 
 ---
 
