@@ -6,7 +6,7 @@ import './analytics';
 import './App.css';
 
 import Footer from './components/Footer';
-import Home from './components/Home';
+import HomePage from './components/HomePage';
 import Header from './components/Header';
 import Herosection from './components/Custom/Herosection';
 import Menu from './components/Menu';
@@ -22,6 +22,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Post />
         <Header />
         <Herosection />
         <Menu />
@@ -30,7 +31,7 @@ function App() {
           <div className="content">
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<HomePage />} />
                 <Route path="/about-us" element={<AboutUs />} />
                 <Route path="/developments/project1" element={<Developments />} />
                 <Route path="/developments/project2" element={<Developments />} />
