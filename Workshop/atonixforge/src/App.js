@@ -16,13 +16,12 @@ import Community from './components/headerpage/Community';
 import Products from './components/headerpage/Products';
 import Support from './components/headerpage/Support';
 import Company from './components/headerpage/Company';
-import Post from './components/Post';
+//import Post from './components/Post';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Post />
         <Header />
         <Herosection />
         <Menu />
