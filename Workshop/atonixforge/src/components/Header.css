@@ -30,7 +30,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
-  background-color: #0d9494;
+  background-color: #007BFF;
   padding: 5px 10px;
   border-radius: 5px;
 
@@ -83,7 +83,7 @@
 }
 
 .cta-button {
-  background-color: #0d9494;
+  background-color: #007BFF;
   color: #fff;
   border: none;
   padding: 5px 10px;
@@ -92,7 +92,7 @@
 }
 
 .cta-button:hover {
-  background-color: #0056b3;
+  background-color: #007BFF;
 }
 
 .dropdown {
