@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faGithub, faDiscord, faLinkedin, faSlack } from '@fortawesome/free-brands-svg-icons';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -11,10 +13,44 @@ const HomePage = () => {
             <h2>Contents</h2>
             <ul>
               <li><a href="#company-overview">Company Overview</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#focus-areas">Focus Areas</a></li>
-              <li><a href="#teams">Teams</a></li>
-              <li><a href="#resources">Resources</a></li>
+              <li>
+                <a href="#projects">Projects</a>
+                <ul>
+                  <li><a href="#therapeutic">Therapeutic</a></li>
+                  <li><a href="#agrotone">Agrotone</a></li>
+                  <li><a href="#hydrpetro">Hydrpetro</a></li>
+                  <li><a href="#future-networks">Future Networks</a></li>
+                  <li><a href="#smarttech-integration">SmartTech Integration</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#focus-areas">Focus Areas</a>
+                <ul>
+                  <li><a href="#agriculture">Agriculture</a></li>
+                  <li><a href="#fintech">Fintech</a></li>
+                  <li><a href="#medical-research">Medical Research</a></li>
+                  <li><a href="#security">Security</a></li>
+                  <li><a href="#big-data">Big Data</a></li>
+                  <li><a href="#cloud-computing">Cloud Computing</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#teams">Teams</a>
+                <ul>
+                  <li><a href="#pioneers">Pioneers</a></li>
+                  <li><a href="#unity-developers">Unity Developers</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#resources">Resources</a>
+                <ul>
+                  <li><a href="#development-guidelines">Development Guidelines</a></li>
+                  <li><a href="#contributing">Contributing</a></li>
+                  <li><a href="#support">Support</a></li>
+                </ul>
+              </li>
+              <li><a href="#community">Community</a></li>
+              <li><a href="#contact-information">Contact Information</a></li>
             </ul>
           </div>
         </Col>
@@ -145,21 +181,34 @@ const HomePage = () => {
             <section id="community">
               <h2>Community</h2>
               <p>Join the AtonixCorp community and stay connected!</p>
-              <ul>
-                <li>Twitter: <a href="https://twitter.com/AtonixCorp">@AtonixCorp</a></li>
-                <li>GitHub: <a href="https://github.com/AtonixCorp">AtonixCorp on GitHub</a></li>
-                <li>Discord: <a href="https://discord.gg/AtonixCorp">Join our Discord server</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/company/AtonixCorp">AtonixCorp on LinkedIn</a></li>
-                <li>Slack: <a href="https://atonixcorp.slack.com">AtonixCorp on Slack</a></li>
+              <ul className="social-icons">
+                <li><a href="https://twitter.com/AtonixCorp"><FontAwesomeIcon icon={faTwitter} /> Twitter</a></li>
+                <li><a href="https://github.com/AtonixCorp"><FontAwesomeIcon icon={faGithub} /> GitHub</a></li>
+                <li><a href="https://discord.gg/AtonixCorp"><FontAwesomeIcon icon={faDiscord} /> Discord</a></li>
+                <li><a href="https://www.linkedin.com/company/AtonixCorp"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</a></li>
+                <li><a href="https://atonixcorp.slack.com"><FontAwesomeIcon icon={faSlack} /> Slack</a></li>
               </ul>
             </section>
             <section id="contact-information">
               <h2>Contact Information</h2>
               <p>For any questions or support, please contact:</p>
-              <ul>
-                <li>Project Manager: Samuel (<a href="mailto:guxegdsa@atonixcorp.com">guxegdsa@atonixcorp.com</a>)</li>
-                <li>Technical Lead: Samuel (<a href="mailto:guxegdsa@atonixcorp.com">guxegdsa@atonixcorp.com</a>)</li>
-              </ul>
+              <Form>
+                <Form.Group controlId="formName">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control type="text" placeholder="Enter your name" />
+                </Form.Group>
+                <Form.Group controlId="formEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control type="email" placeholder="Enter your email" />
+                </Form.Group>
+                <Form.Group controlId="formMessage">
+                  <Form.Label>Message</Form.Label>
+                  <Form.Control as="textarea" rows={3} placeholder="Enter your message" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
             </section>
           </div>
         </Col>
