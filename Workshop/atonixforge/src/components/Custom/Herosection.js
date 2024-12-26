@@ -16,7 +16,7 @@ const Herosection = () => {
             Join the Developer Preview Program to see what we are building and make an impact on the future of Atonixcorp products.
             Help us shape the future of Atonixcorp products by providing feedback.
           </p>
-          <button className="btn btn-primary">Learn More</button>
+          <a href="https://developer.atonix.com/" className="btn btn-primary btn-lg mt-4">Join the Developer Preview Program</a>
         </div>
       </div>
     </header>

@@ -76,3 +76,15 @@
     font-size: 1rem;
   }
 }
+
+.custom-btn {
+  background-color: #0d9494;
+  border-color: #0d9494;
+}
+
+.custom-btn:hover,
+.custom-btn:focus,
+.custom-btn:active {
+  background-color: #0b7a7a;
+  border-color: #0b7a7a;
+}
