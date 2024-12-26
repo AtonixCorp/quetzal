@@ -30,7 +30,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
-  background-color: #004d4d;
+  background-color: #0d9494;
   padding: 5px 10px;
   border-radius: 5px;
 
@@ -58,7 +58,7 @@
 }
 
 .nav-link:hover {
-  background-color: #007bff;
+  background-color: #0d9494;
   border-radius: 5px;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .cta-button {
-  background-color: #004d4d;
+  background-color: #0d9494;
   color: #fff;
   border: none;
   padding: 5px 10px;
