@@ -16,6 +16,9 @@ import Community from './components/headerpage/Community';
 import Products from './components/headerpage/Products';
 import Support from './components/headerpage/Support';
 import Company from './components/headerpage/Company';
+import SignIn from './components/account/SignIn'; 
+import SignUp from './components/account/SignUp'; // Correct import path for SignUp component
+import ContactUs from './components/account/ContactUs'; // Correct import path for Contact component
 //import Post from './components/Post';
 
 function App() {
@@ -29,7 +32,6 @@ function App() {
           <div className="content">
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
-                
                 <Route path="/about-us" element={<AboutUs />} />
                 <Route path="/developments/project1" element={<Developments />} />
                 <Route path="/developments/project2" element={<Developments />} />
@@ -40,6 +42,9 @@ function App() {
                 <Route path="/support/contact" element={<Support />} />
                 <Route path="/company/about" element={<Company />} />
                 <Route path="/company/careers" element={<Company />} />
+                <Route path="/signin" element={<SignIn />} /> {/* Add SignIn route */}
+                <Route path="/signup" element={<SignUp />} /> {/* Add SignUp route */}
+                <Route path="/contactus" element={<ContactUs />} /> {/* Add Contact route */}
               </Routes>
             </Suspense>
           </div>
