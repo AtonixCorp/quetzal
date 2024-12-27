@@ -1,13 +1,27 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:latest
+    container_name: atonixforgedb
+    environment:
+      POSTGRES_USER: guxegdsa
+      POSTGRES_PASSWORD: FRTAGl6innovation
+      POSTGRES_DB: atonixforgedb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
   frontend:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: atonixforgefrontend
     ports:
-      - "5000:5000"
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    command: ["serve", "-s", "build", "-l", "5000"]
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  db_data:

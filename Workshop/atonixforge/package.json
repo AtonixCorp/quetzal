@@ -1,5 +1,5 @@
 {
-    "name": "Atonixcorp",
+    "name": "atonixforge",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -123,9 +123,9 @@
         "path-browserify": "^1.0.1",
         "postcss-loader": "^8.1.1",
         "prettier": "^3.3.3",
-        "react-scripts": "^5.0.1",
-        "sass": "^1.83.0",
-        "sass-loader": "^16.0.4",
+        "react-scripts": "^3.0.1",
+        "sass": "^1.80.5",
+        "sass-loader": "^16.0.2",
         "style-loader": "^4.0.0",
         "terser-webpack-plugin": "^5.3.10",
         "thread-loader": "^4.0.2",
