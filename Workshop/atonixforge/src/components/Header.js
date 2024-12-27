@@ -3,11 +3,13 @@ import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import LoginWelcomeCard from './Cards/LoginWelcomeCard'; // Import the card
 
 const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
     const [showLanguage, setShowLanguage] = useState(false);
     const [dropdown, setDropdown] = useState(null);
+    const [showLoginCard, setShowLoginCard] = useState(false); // State to control card visibility
     const navigate = useNavigate();
 
     const toggleSearch = () => {
@@ -22,6 +24,10 @@ const Header = () => {
 
     const toggleDropdown = (menu) => {
         setDropdown(dropdown === menu ? null : menu);
+    };
+
+    const handleLoginClick = () => {
+        setShowLoginCard(true); // Show the login card
     };
 
     return (
@@ -196,9 +202,10 @@ const Header = () => {
                     </select>
                 )}
             </div>
-            <button className="cta-button">
+            <button className="cta-button" onClick={handleLoginClick}>
                 <span className="cta-text">Log In To Hub</span>
             </button>
+            {showLoginCard && <LoginWelcomeCard />}
         </div>
     );
 }
