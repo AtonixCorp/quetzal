@@ -1,15 +1,11 @@
-/* Herosection.css */
-
 .herosection {
   background-image: url('../../images/headerbackground.png');
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
   background-color: rgba(0, 0, 0, 0.7);
-  /* Dark overlay */
   color: #ffffff;
-  height: 50vh;
-  /* Adjusted height */
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,74 +13,61 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 20px;
-  /* Rounded corners */
   overflow: hidden;
-  /* Ensures content respects border-radius */
 }
 
 .herosection-content {
-  background-color: #ffffff;
-  /* White background for content */
+  background-color: rgba(255, 255, 255, 0.9);
   color: #000000;
-  /* Black text */
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   border-radius: 15px;
-  /* Rounded corners for content */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Inner shadow for depth */
+  max-width: 800px;
 }
 
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 15px;
-  color: #007BFF;
-  /* Black text */
+  margin-bottom: 20px;
+  color: #003153;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 20px;
-  color: #000000;
-  /* Black text */
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #333333;
 }
 
 .btn-primary {
   background-color: #0d9494;
   border-color: #0d9494;
   color: #ffffff;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 12px 24px;
+  font-size: 1.25rem;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: #0d9494;
-  border-color: #0d9494;
+  background-color: #0b7a7a;
+  border-color: #0b7a7a;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
-}
 
-.custom-btn {
-  background-color: #0d9494;
-  border-color: #0d9494;
-}
-
-.custom-btn:hover,
-.custom-btn:focus,
-.custom-btn:active {
-  background-color: #0b7a7a;
-  border-color: #0b7a7a;
+  .btn-primary {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }

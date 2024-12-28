@@ -8,7 +8,7 @@ const Herosection = () => {
   return (
     <header className="herosection">
       <div className="container d-flex flex-column justify-content-center align-items-center">
-        <div className="herosection-content text-center my-5 tiny-text">
+        <div className="herosection-content text-center my-5">
           <h1 className="hero-title">
             Be Part of Developing the Future of Atonixcorp!
           </h1>

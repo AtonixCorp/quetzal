@@ -30,6 +30,13 @@ const Header = () => {
         setShowLoginCard(true); // Show the login card
     };
 
+<<<<<<< HEAD
+=======
+    const handleCloseLoginCard = () => {
+        setShowLoginCard(false); // Hide the login card
+    };
+
+>>>>>>> bc34a41db3d5795e4543f186c43dee5903a67521
     return (
         <div className="navbar">
             <div className="logo-container">
@@ -205,7 +212,11 @@ const Header = () => {
             <button className="cta-button" onClick={handleLoginClick}>
                 <span className="cta-text">Log In To Hub</span>
             </button>
+<<<<<<< HEAD
             {showLoginCard && <LoginWelcomeCard />}
+=======
+            {showLoginCard && <LoginWelcomeCard show={showLoginCard} handleClose={handleCloseLoginCard} />}
+>>>>>>> bc34a41db3d5795e4543f186c43dee5903a67521
         </div>
     );
 }
