@@ -1,151 +1,147 @@
-<<<<<<< HEAD
 /* Container Styles */
 .welcome-card {
-    width: 100%;
-    max-width: 400px; /* Restricts the width to 400px */
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff; /* White background for the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    border-radius: 10px;
-    transition: transform 0.2s; /* Smooth transition for hover effects */
-  }
-  
-  /* Card Hover Effect */
-  .welcome-card:hover {
-    transform: translateY(-5px); /* Slightly lifts the card */
-  }
-  
-  /* Title Styles */
-  .welcome-card .card-title {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #343a40; /* Darker color for the title */
-    margin-bottom: 20px;
-  }
-  
-  /* Text Styles */
-  .welcome-card .card-text {
-    text-align: center;
-    font-size: 1rem;
-    color: #6c757d; /* Muted color for the text */
-    margin-bottom: 20px;
-  }
-  
-  /* Button Styles */
-  .welcome-card .btn-block {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-  
-  .welcome-card .btn-primary {
-    background-color: #007bff; /* Primary blue */
-    border-color: #007bff;
-  }
-  
-  .welcome-card .btn-primary:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    border-color: #0056b3;
-  }
-  
-  .welcome-card .btn-secondary {
-    background-color: #6c757d; /* Secondary gray */
-    border-color: #6c757d;
-  }
-  
-  .welcome-card .btn-secondary:hover {
-    background-color: #5a6268; /* Darker gray on hover */
-    border-color: #5a6268;
-  }
-  
-  .welcome-card .btn-info {
-    background-color: #17a2b8; /* Info teal */
-    border-color: #17a2b8;
-  }
-  
-  .welcome-card .btn-info:hover {
-    background-color: #138496; /* Darker teal on hover */
-    border-color: #138496;
-  }
-  
-  /* Social Media Icons Styles */
-  .welcome-card .social-media-icons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  
-  .welcome-card .social-media-icons a {
-    color: #495057; /* Muted color for icons */
-    transition: color 0.2s, transform 0.2s; /* Smooth transition for color and transform */
-  }
-  
-  .welcome-card .social-media-icons a:hover {
-    color: #007bff; /* Changes to primary blue on hover */
-    transform: scale(1.1); /* Slightly enlarges on hover */
-  }
-  
-=======
-/* LoginWelcomeCard.css */
+  width: 100%;
+  max-width: 400px; /* Restricts the width to 400px */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff; /* White background for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 10px;
+  transition: transform 0.2s; /* Smooth transition for hover effects */
+}
 
+/* Card Hover Effect */
+.welcome-card:hover {
+  transform: translateY(-5px); /* Slightly lifts the card */
+}
+
+/* Title Styles */
+.welcome-card .card-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #343a40; /* Darker color for the title */
+  margin-bottom: 20px;
+}
+
+/* Text Styles */
+.welcome-card .card-text {
+  text-align: center;
+  font-size: 1rem;
+  color: #6c757d; /* Muted color for the text */
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+.welcome-card .btn-block {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.welcome-card .btn-primary {
+  background-color: #007bff; /* Primary blue */
+  border-color: #007bff;
+}
+
+.welcome-card .btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  border-color: #0056b3;
+}
+
+.welcome-card .btn-secondary {
+  background-color: #6c757d; /* Secondary gray */
+  border-color: #6c757d;
+}
+
+.welcome-card .btn-secondary:hover {
+  background-color: #5a6268; /* Darker gray on hover */
+  border-color: #5a6268;
+}
+
+.welcome-card .btn-info {
+  background-color: #17a2b8; /* Info teal */
+  border-color: #17a2b8;
+}
+
+.welcome-card .btn-info:hover {
+  background-color: #138496; /* Darker teal on hover */
+  border-color: #138496;
+}
+
+/* Social Media Icons Styles */
+.welcome-card .social-media-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.welcome-card .social-media-icons a {
+  color: #495057; /* Muted color for icons */
+  transition: color 0.2s, transform 0.2s; /* Smooth transition for color and transform */
+}
+
+.welcome-card .social-media-icons a:hover {
+  color: #007bff; /* Changes to primary blue on hover */
+  transform: scale(1.1); /* Slightly enlarges on hover */
+}
+
+/* Modal Styles */
 .modal-header {
-    background-color: #007bff;
-    color: white;
-    border-bottom: none;
+  background-color: #007bff;
+  color: white;
+  border-bottom: none;
 }
 
 .modal-title {
-    font-weight: bold;
-    font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .modal-body {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btn {
-    width: 100%;
-    font-size: 1.2rem;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    border: none;
+  background-color: #007bff;
+  border: none;
 }
 
 .btn-secondary {
-    background-color: #6c757d;
-    border: none;
+  background-color: #6c757d;
+  border: none;
 }
 
 .btn-info {
-    background-color: #17a2b8;
-    border: none;
+  background-color: #17a2b8;
+  border: none;
 }
 
 .social-media-icons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
 }
 
 .social-media-icons a {
-    color: #6c757d;
-    transition: color 0.3s ease;
+  color: #6c757d;
+  transition: color 0.3s ease;
 }
 
 .social-media-icons a:hover {
-    color: #007bff;
+  color: #007bff;
 }
->>>>>>> bc34a41db3d5795e4543f186c43dee5903a67521
