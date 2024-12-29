@@ -16,11 +16,10 @@ DEBUG = True
 # settings.py
 
 ALLOWED_HOSTS = [
-    '0.0.0.0',
     'localhost',
-    '127.0.0.1',
-    '192.168.137.123',  
+    '127.0.0.1'
 ]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +37,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_auth",
-   "django_filters",
+   "django_filter",
     "rest_framework_simplejwt",
     "rest_framework_json_api",
 ]
