@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atonixforge
+  namespace: atonixcorp-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atonixforge
+  template:
+    metadata:
+      labels:
+        app: atonixforge
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: atonixforge
+          image: ofidohubvm/atonixforge:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "500m"
+            limits:
+              memory: "256Mi"
+              cpu: "1"

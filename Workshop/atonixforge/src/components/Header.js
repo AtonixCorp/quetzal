@@ -29,7 +29,11 @@ const Header = () => {
     const handleLoginClick = () => {
         setShowLoginCard(true); // Show the login card
     };
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> f1c639b38df4a56e941ab74d465360260735eb27
     const handleCloseLoginCard = () => {
         setShowLoginCard(false); // Hide the login card
     };

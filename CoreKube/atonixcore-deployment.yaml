@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atonixcore
+  namespace: atonixcorp-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atonixcore
+  template:
+    metadata:
+      labels:
+        app: atonixcore
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: atonixcore
+          image: ofidohubvm/atonixcore:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "500m"
+            limits:
+              memory: "256Mi"
+              cpu: "1"

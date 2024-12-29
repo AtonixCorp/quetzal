@@ -69,4 +69,8 @@ LoginWelcomeCard.propTypes = {
   handleClose: PropTypes.func.isRequired,
 };
 
+<<<<<<< HEAD
 export default LoginWelcomeCard;
+=======
+export default LoginWelcomeCard;
+>>>>>>> f1c639b38df4a56e941ab74d465360260735eb27
