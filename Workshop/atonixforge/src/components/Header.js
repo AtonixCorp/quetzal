@@ -3,11 +3,13 @@ import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import LoginWelcomeCard from './Cards/LoginWelcomeCard'; // Import the card
 
 const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
     const [showLanguage, setShowLanguage] = useState(false);
     const [dropdown, setDropdown] = useState(null);
+    const [showLoginCard, setShowLoginCard] = useState(false); // State to control card visibility
     const navigate = useNavigate();
 
     const toggleSearch = () => {
@@ -24,6 +26,17 @@ const Header = () => {
         setDropdown(dropdown === menu ? null : menu);
     };
 
+    const handleLoginClick = () => {
+        setShowLoginCard(true); // Show the login card
+    };
+
+<<<<<<< HEAD
+=======
+    const handleCloseLoginCard = () => {
+        setShowLoginCard(false); // Hide the login card
+    };
+
+>>>>>>> bc34a41db3d5795e4543f186c43dee5903a67521
     return (
         <div className="navbar">
             <div className="logo-container">
@@ -196,9 +209,14 @@ const Header = () => {
                     </select>
                 )}
             </div>
-            <button className="cta-button">
+            <button className="cta-button" onClick={handleLoginClick}>
                 <span className="cta-text">Log In To Hub</span>
             </button>
+<<<<<<< HEAD
+            {showLoginCard && <LoginWelcomeCard />}
+=======
+            {showLoginCard && <LoginWelcomeCard show={showLoginCard} handleClose={handleCloseLoginCard} />}
+>>>>>>> bc34a41db3d5795e4543f186c43dee5903a67521
         </div>
     );
 }
