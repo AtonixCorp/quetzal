@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atonixcore-operator
+  namespace: atonixcorp-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atonixcore-operator
+  template:
+    metadata:
+      labels:
+        app: atonixcore-operator
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: atonixcore-operator
+          image: ofidohubvm/atonixcore-operator:v0.0.1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
