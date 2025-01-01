@@ -20,11 +20,13 @@ import SignIn from './components/account/SignIn';
 import SignUp from './components/account/SignUp'; // Correct import path for SignUp component
 import ContactUs from './components/account/ContactUs'; // Correct import path for Contact component
 //import Post from './components/Post';
+import Notification from './components/Notification';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <Notification />
         <Header />
         <Herosection />
         <HomePage />

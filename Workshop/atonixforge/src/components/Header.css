@@ -1,19 +1,12 @@
 /* Header.css */
 
-.header {
-  background-color: #333;
-  color: #333;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  background-color: #003153;
+  padding: 10px 20px;
+  color: white;
 }
 
 .logo-container {
@@ -28,38 +21,40 @@
 
 .logo-text {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  background-color: #003153;
-  padding: 5px 10px;
-  border-radius: 5px;
-
-
+  font-weight: bold;
 }
 
-
-.nav-list {
+.nav {
   display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  align-items: center;
 }
 
 .nav-item {
-  margin: 0 10px;
+  position: relative;
+  margin: 0 15px;
+  cursor: pointer;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: white;
-  font-size: 0.875rem;
-  padding: 5px 10px;
-  transition: background-color 0.3s;
-}
-
-.nav-link:hover {
-  background-color: #0d9494;
+.nav-item .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-item .dropdown span {
+  display: block;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-item .dropdown span:hover {
+  background-color: #f2f2f2;
 }
 
 .icon-container {
@@ -68,51 +63,37 @@
 }
 
 .icon {
-  margin: 0 5px;
+  margin: 0 10px;
   cursor: pointer;
 }
 
 .search-bar {
-  margin-left: 10px;
   padding: 5px;
-}
-
-.translator {
-  margin-left: 10px;
-  padding: 5px;
-}
-
-.cta-button {
-  background-color: #003153;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
+  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.cta-button:hover {
-  background-color: #003153;
+.translator {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #444;
-  color: #fff;
-  padding: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown span {
-  display: block;
-  padding: 5px 0;
+.cta-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.dropdown span:hover {
-  background-color: #555;
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+.cta-text {
+  font-size: 1rem;
+  font-weight: bold;
 }
