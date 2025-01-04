@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: atonixcore-service
+  namespace: atonixcorp-system
+spec:
+  selector:
+    app: atonixcore
+  ports:
+    - name: http-alt
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30081
+  type: NodePort

@@ -1,21 +1,19 @@
-name: atonixcore
-id: "ari:cloud:compass:bc4b01c0-5d43-4e8d-afff-4a1d75d7d427:component/88e6e041-e3d0-4598-a661-4a82beb3dbb4/bbdd918d-c5b8-46ef-a36b-8e9f21b3944b"
+name: Atonix Development Hub
+id: 'ari:cloud:compass:bc4b01c0-5d43-4e8d-afff-4a1d75d7d427:component/88e6e041-e3d0-4598-a661-4a82beb3dbb4/ef1a7c69-293a-4f26-9d65-cce0caa583d1'
 description: null
 configVersion: 1
-typeId: CLOUD_RESOURCE
-ownerId: "ari:cloud:identity::team/8489892b-2e3c-4916-9a79-74366ba2cee1"
+typeId: SERVICE
+ownerId: 'ari:cloud:identity::team/fc322d87-0a39-4e62-b9bb-04f369a7dd39'
 fields:
   tier: 4
 links:
-  - name: null
-    type: REPOSITORY
-    url: "https://bitbucket.org/atonixcorpworkstation/atonixcore"
+  - name: Development Hub
+    type: PROJECT
+    url: 'https://atonixcorpcorporation.atlassian.net/browse/AT'
 relationships: {}
 labels:
-  - bitbucket-import
-customFields:
-  - name: AtonixCorp Administration
-    type: multi_select
-    value: null
+  - synced-with-jsm
+customFields: null
+
 # Learn more about formatting compass.yml:
 # https://go.atlassian.com/compass-yml-format

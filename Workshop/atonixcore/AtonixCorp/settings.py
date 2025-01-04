@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_auth",
-   "django_filter",
     "rest_framework_simplejwt",
     "rest_framework_json_api",
 ]

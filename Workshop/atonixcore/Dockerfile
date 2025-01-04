@@ -1,14 +1,17 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.9.20-slim
 
+# Set the working directory
 WORKDIR /app
 
+# Copy the requirements file
 COPY requirements.txt .
 
-COPY ~/.cache/pip /root/.cache/pip
-
+# Install the dependencies
 RUN pip install --no-cache-dir --default-timeout=1000 -r requirements.txt
 
+# Copy the rest of the application code
 COPY . .
 
-CMD ["python", "app.py", "manage.py" ]
+# Set the default command to run the Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

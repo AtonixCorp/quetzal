@@ -1,21 +1,21 @@
+# Use the official Node.js image from the Docker Hub
+FROM node:slim
 
-FROM node:16.3.0-alpine3.11
-
+# Set the working directory
 WORKDIR /usr/src/app
 
-
+# Copy the package.json and package-lock.json files
 COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application code
 COPY . .
 
+# Build the application
 RUN npm run build
 
+# Set the default command to run the application
+CMD ["npm", "start"]
 
-RUN npm install -g serve
-
-
-EXPOSE 5000
-
-CMD ["serve", "-s", "build", "-l", "3000"]

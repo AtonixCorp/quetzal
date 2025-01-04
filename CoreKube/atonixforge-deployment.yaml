@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: atonixforge
+  name: atonixforge-deployment
   namespace: atonixcorp-system
 spec:
   replicas: 1
@@ -13,17 +13,10 @@ spec:
       labels:
         app: atonixforge
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
-        - name: atonixforge
-          image: ofidohubvm/atonixforge:latest
-          ports:
-            - containerPort: 80
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "500m"
-            limits:
-              memory: "256Mi"
-              cpu: "1"
+      - name: atonixforge
+        image: ofidohubvm/atonixforge:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: docker-registry-secret
