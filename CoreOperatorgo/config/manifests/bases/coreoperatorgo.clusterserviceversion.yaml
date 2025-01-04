@@ -1,0 +1,56 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+  name: coreoperatorgo.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: CoreOperatorGo is the Schema for the coreoperatorgoes API
+      displayName: Core Operator Go
+      kind: CoreOperatorGo
+      name: coreoperatorgos.cache.atonixcorp.org
+      version: v1alpha1
+  description: for scaling up production
+  displayName: coreoperatorgo
+  icon:
+  - base64data: ""
+    mediatype: ""
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - scaling
+  - production
+  - automation
+  - monitoring
+  - system performance
+  - technical support
+  - cloud services
+  - Kubernetes
+  - AtonixCorp
+  - core operator
+  links:
+  - name: Coreoperatorgo
+    url: https://coreoperatorgo.domain
+  maintainers:
+  - email: guxegdsa@atonixcorg.org
+    name: AtonixCorp
+  maturity: alpha
+  provider:
+    name: AtonixCorp
+  version: 0.0.0

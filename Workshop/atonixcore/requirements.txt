@@ -6,7 +6,6 @@ django-cors-headers
 django-allauth
 django-rest-auth
 django-environ
-
 # Debugging
 django-debug-toolbar
 

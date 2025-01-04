@@ -1,5 +1,5 @@
 {
-  "name": "techforge",
+  "name": "atonixforge",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -53,6 +53,8 @@
     "@babel/preset-env": "^7.21.7",
     "@babel/preset-react": "^7.21.7",
     "@eslint/js": "^9.17.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
     "concurrently": "^7.5.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
