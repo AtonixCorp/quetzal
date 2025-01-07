@@ -1,0 +1,13 @@
+modules:
+  bitbucket:dynamicPipelinesProvider:
+    - key: craftium-dynamic-pipelines-provider
+      function: main
+      name: Craftium
+      description: A Dynamic Pipelines provider example
+  function:
+    - key: main
+      handler: index.main
+app:
+  runtime:
+    name: nodejs22.x
+  id: ari:cloud:ecosystem::app/283f226b-a9d4-45ff-a2f1-caa9d314ac8f
