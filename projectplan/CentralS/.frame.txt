@@ -1,0 +1,57 @@
+1. Infrastructure Management
+OpenStack: Manage your private cloud infrastructure.
+
+MAAS: Provides bare metal provisioning and helps manage physical servers.
+
+Terraform: Infrastructure as Code (IaC) to automate the deployment of cloud infrastructure across multiple providers (public/private).
+
+Chef: Automates application deployment and configuration management.
+
+Ceph: Scalable and distributed storage system for OpenStack.
+
+2. Virtualization and Containerization
+VMware: For virtualized environments, especially on the private cloud side.
+
+LXD: System container and VM manager for running containers.
+
+Docker/Podman: For containerized applications.
+
+Kubernetes: Orchestrates and manages containerized applications.
+
+OpenShift: Enterprise Kubernetes platform that enhances Kubernetes with additional features and management tools.
+
+3. Continuous Integration/Continuous Deployment (CI/CD)
+Jenkins: Automates CI/CD pipelines.
+
+Zuul: Manages complex CI/CD pipelines, particularly for gating code changes.
+
+GitLab/GitLab Self-hosted: Provides a complete CI/CD pipeline, source code management, and project management.
+
+4. Database Management
+PostgreSQL (PSQL): Relational database management system.
+
+MySQL: Another option for relational database management.
+
+MongoDB: NoSQL database for handling unstructured data.
+
+5. Orchestration and Management
+Ansible: Another option for configuration management and automating application deployment.
+
+Kubernetes: For orchestration and managing containerized applications.
+
+Openshift: Builds on Kubernetes with additional features.
+
+Vault by HashiCorp: Secure storage of secrets and sensitive data.
+
+6. Monitoring, Logging, and Security
+Prometheus & Grafana: For monitoring and visualizing metrics.
+
+ELK Stack (Elasticsearch, Logstash, Kibana): For comprehensive logging and analysis.
+
+Istio: For service mesh, enabling secure service-to-service communication.
+
+Calico: For networking in Kubernetes.
+
+Falco: For runtime security in Kubernetes.
+
+Vault by HashiCorp: For managing secrets and encryption.
