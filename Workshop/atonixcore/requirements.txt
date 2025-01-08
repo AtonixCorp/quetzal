@@ -6,18 +6,33 @@ django-cors-headers
 django-allauth
 django-rest-auth
 django-environ
-# Debugging
-django-debug-toolbar
-
-# Additional management commands
-django-extensions
-
-# PostgreSQL database adapter
-psycopg2-binary
-
-# WSGI HTTP server
-gunicorn
-
-# New dependencies for the rest of your installed apps
+django-debug-toolbar  # Debugging
+django-extensions  # Additional management commands
+psycopg2-binary  # PostgreSQL database adapter
+gunicorn  # WSGI HTTP server
 djangorestframework-jsonapi
 
+# Load Balancing and Performance
+daphne  # ASGI HTTP server for asynchronous Django
+channels  # Django Channels for handling WebSockets and background tasks
+
+# Caching
+django-redis  # Redis cache backend for Django
+
+# Task Queues
+celery  # Asynchronous task queue
+redis  # Redis message broker for Celery
+
+# Data Science and Computational Libraries
+numpy  # Numerical operations
+pandas  # Data manipulation and analysis
+matplotlib  # Data visualization
+scipy  # Scientific computing
+jupyter  # Interactive computing and notebooks
+scikit-learn  # Machine learning
+torch  # Deep learning and neural networks
+
+# Security
+cryptography  # Encryption and security
+pycryptodome  # Cryptographic library
+paramiko  # SSH connections
