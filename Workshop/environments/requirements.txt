@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Machine Learning and Quantum Computing
 torch
 opencv-python
@@ -44,10 +44,3 @@ jupyter
 # Machine Learning
 scikit-learn
 xgboost
-=======
-qiskit
-qiskit-nature
-qiskit-ibm-runtime
-pyscf
-
->>>>>>> origin/main

@@ -9,5 +9,19 @@ data:
       projects:
         - id: 65936411
     agents:
-      atonixcorp:
+      atonixcofoo:
         token:
+
+    user_access:
+      access_as:
+        agent: {}  # for free
+        user: {}   # for premium+
+      projects:
+        - id: https://gitlab.com/atonixcore/atonixcore.git
+
+    subjects:
+      - name: gitlab:atonixcore-project-65936411:maintainer
+        kind: Group
+        groups:
+          - id: 99999995
+
