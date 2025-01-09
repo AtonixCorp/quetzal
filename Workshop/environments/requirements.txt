@@ -58,3 +58,4 @@ pyscf
 azure-iot-device
 biopython
 sqlalchemy
+Babel
