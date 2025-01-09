@@ -22,7 +22,7 @@ django-redis  # Redis cache backend for Django
 # Task Queues
 celery  # Asynchronous task queue
 redis  # Redis message broker for Celery
-
+dj-database-url
 # Data Science and Computational Libraries
 numpy  # Numerical operations
 pandas  # Data manipulation and analysis

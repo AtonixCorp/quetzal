@@ -1,23 +1,25 @@
-# Use a compatible Node.js base image
-FROM node:20.17.0
+# Use the official Python image from the Docker Hub
+FROM python:3.9-slim
 
-# Set the working directory
-WORKDIR /usr/src/app
+# Set the working directory in the container
+WORKDIR /app
 
-# Update npm to the latest version
-RUN npm install -g npm@11.0.0
+# Copy the requirements files into the container
+COPY Workshop/atonixcore/requirements.txt /app/Workshop/atonixcore/requirements.txt
+COPY Workshop/environments/requirements.txt /app/Workshop/environments/requirements.txt
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
+# Install the Python dependencies
+RUN pip install --upgrade pip && \
+    pip install -r /app/Workshop/atonixcore/requirements.txt && \
+    pip install -r /app/Workshop/environments/requirements.txt
 
 # Copy the rest of the application code
-COPY . .
+COPY Workshop/atonixcore /app/atonixcore
+COPY Workshop/environments /app/environments
 
-# Expose the application port
-EXPOSE 3000
+# Expose the port the application runs on
+EXPOSE 8082
 
-# Start the application
-CMD ["npm", "start"]
+# Set the command to run Gunicorn with the WSGI application
+CMD ["gunicorn", "--workers", "3", "app.py", "manage.py", "runserver",  "--bind", "0.0.0.0:8082", "atonixcore.wsgi:application"]
+
