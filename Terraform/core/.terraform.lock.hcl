@@ -1,6 +1,29 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
+provider "registry.terraform.io/gitlabhq/gitlab" {
+  version     = "17.7.0"
+  constraints = ">= 3.12.0"
+  hashes = [
+    "h1:AVuM9ZBpOyKyE8unz+TGxt89lH9zJfV+HtMRwS+zW60=",
+    "zh:03dea610379c3ae08c2a2a852055f3277320d847844271bcf1eb6a1bf68567f4",
+    "zh:138841e2eb743d703373b6b9fdf409c6776958954e8948912248d8da304a48a9",
+    "zh:2a7ba3fa47db4c155a34f78a6929a3b8fc124c76f2f765143edbfa36096cd7eb",
+    "zh:54f53d9ed6ba8da733b7ed3d86da4c64b1c4ff54c7f9dd7d1ade60a446f8c464",
+    "zh:5f2a08dc1a61f88a34b2e045214e860f8e6c3a484d5b6020eeee184118d0acc1",
+    "zh:776fd6278cf66bf7941e8474c199b8f3568cb149239f8448b175c245493ff2be",
+    "zh:817802f1807fb8f30586e23d4adaf80bf6125653f46d2e641b57d99bd3737252",
+    "zh:8d30e3a524dd08f00477a93226d603d53a8b827c44545136362143aad98822dd",
+    "zh:933d4b53e0c9e3095c4b0458cf0deb0e52c4272b28ef594abb0e0de5903e3cc5",
+    "zh:d533758a61d46b7181da64ebb317c19638b96c344c9b917549197e0ca0559571",
+    "zh:dfaf8fb3374660905e703d2a67660202c6f2d3e950ad4bec30d4e262c21c45ea",
+    "zh:e2f506f3be61ec16e8661bd32a6bde1a7e51f4002bcff8aa1bc45ba09c5d6d96",
+    "zh:ed766b5294bd3bdb06e699e0d470889d395f5e0175dbdbd90cc2c325c7309125",
+    "zh:eee862ea172ba0e1919229c6b2158f25a44672703868130100f14ba2af0108da",
+    "zh:f809ab383cca0a5f83072981c64208cbd7fa67e986a86ee02dd2c82333221e32",
+  ]
+}
+
 provider "registry.terraform.io/hashicorp/kubernetes" {
   version = "2.35.1"
   hashes = [

@@ -1,21 +1,23 @@
+# Use an appropriate Node.js base image
+FROM node:14
 
-FROM node:16.3.0-alpine3.11
-
+# Set the working directory
 WORKDIR /usr/src/app
 
+# Update npm to the latest version
+RUN npm install -g npm@11.0.0
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application code
 COPY . .
 
-RUN npm run build
+# Expose the application port
+EXPOSE 3000
 
-
-RUN npm install -g serve
-
-
-EXPOSE 5000
-
-CMD ["serve", "-s", "build", "-l", "3000"]
+# Start the application
+CMD ["npm", "start"]

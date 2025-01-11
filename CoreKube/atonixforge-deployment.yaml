@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: atonixforge
-  namespace: atonixcorp-system
+  name: atonixforge-deployment
+  namespace: coreoperatorgo-system
 spec:
   replicas: 1
   selector:
@@ -13,17 +13,12 @@ spec:
       labels:
         app: atonixforge
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
-        - name: atonixforge
-          image: ofidohubvm/atonixforge:latest
-          ports:
-            - containerPort: 80
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "500m"
-            limits:
-              memory: "256Mi"
-              cpu: "1"
+      - name: atonixforge
+        image: ofidohubvm/atonixforge:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: myregistrykey
+      - name: mynewregistrykey
+      - name: mygithubregistrykey

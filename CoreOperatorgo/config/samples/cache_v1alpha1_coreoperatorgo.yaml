@@ -1,0 +1,9 @@
+apiVersion: cache.atonixcorp.org/v1alpha1
+kind: CoreOperatorGo
+metadata:
+  labels:
+    app.kubernetes.io/name: coreoperatorgo
+    app.kubernetes.io/managed-by: kustomize
+  name: coreoperatorgo-sample
+spec:
+  # TODO(user): Add fields here

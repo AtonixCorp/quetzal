@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  atonixcorp-system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: atonixcofoo
+    command: ["gunicorn", "--workers", "3", "app.py", "manage.py", "runserver", "--bind", "0.0.0.0:8082", "atonixcore.wsgi:application"]
+    volumes:
+      - ./Workshop/atonixcore:/app/atonixcore
+      - ./Workshop/environments:/app/environments
+    ports:
+      - "8082:8082"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://guxegdsa:atonixcofoobd@db_atonixcorp-system:5432/atonixcofoodb
+    depends_on:
+      - db_atonixcorp-system
+
+  db_atonixcorp-system:
+    image: docker.io/library/postgres:17  # Use PostgreSQL 17
+    volumes:
+      - db_data_atonixcorp-system:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: atonixcofoodb
+      POSTGRES_USER: guxegdsa
+      POSTGRES_PASSWORD: atonixcofoobd
+
+volumes:
+  db_data_atonixcorp-system:
