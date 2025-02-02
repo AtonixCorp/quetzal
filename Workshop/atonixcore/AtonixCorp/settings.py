@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -12,8 +13,6 @@ SECRET_KEY = "django-insecure-vrnlh1mn+mens(%=rzjv4mzse4e$=1@-bb^9!d#k40t8c@_%y+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-# settings.py
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -39,7 +38,6 @@ INSTALLED_APPS = [
     "rest_auth",
     "rest_framework_simplejwt",
     "rest_framework_json_api",
-   "
 ]
 
 MIDDLEWARE = [
@@ -77,18 +75,15 @@ WSGI_APPLICATION = "AtonixCorp.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
- #   "default": {
-  #      "ENGINE": "django.db.backends.sqlite3",
-   #     "NAME": BASE_DIR / "db.sqlite3",
-     
-  #  }
-#}
-# BASE_DIR is usually defined as:
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 DATABASES = {
-    "default": dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "atonixcofoodb",
+        "USER": "admin",
+        "PASSWORD": "sf9x7ha2tcinn",
+        "HOST": "localhost",
+        "PORT": "3306",
+    }
 }
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
