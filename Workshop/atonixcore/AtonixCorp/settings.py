@@ -16,7 +16,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    '192.168.30.128',
+    '0.0.0.0'
 ]
 
 # Application definition
@@ -78,11 +80,19 @@ WSGI_APPLICATION = "AtonixCorp.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "atonixcofoodb",
-        "USER": "admin",
-        "PASSWORD": "sf9x7ha2tcinn",
-        "HOST": "localhost",
-        "PORT": "3306",
+        "NAME": os.environ.get('MYSQL_DATABASE', 'atonixcofoodb'),
+        "USER": os.environ.get('MYSQL_USER', 'admin'),
+        "PASSWORD": os.environ.get('MYSQL_PASSWORD', 'sf9x7ha2tcinn'),
+        "HOST": os.environ.get('MYSQL_HOST', 'localhost'),
+        "PORT": os.environ.get('MYSQL_PORT', '3306'),
+    },
+    "postgres": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get('POSTGRES_DB', 'atonixcorpvmdb'),
+        "USER": os.environ.get('POSTGRES_USER', 'admin'),
+        "PASSWORD": os.environ.get('POSTGRES_PASSWORD', 'sf9x7ha2tcinn'),
+        "HOST": os.environ.get('POSTGRES_HOST', 'localhost'),
+        "PORT": os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
 

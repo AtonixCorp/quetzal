@@ -1,32 +1,57 @@
-version: '3.9'
+version: '3.8'
 
 services:
-  atonixcorp-system:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: atonixcofoo
-    command: ["gunicorn", "--workers", "3", "app.py", "manage.py", "runserver", "--bind", "0.0.0.0:8082", "atonixcore.wsgi:application"]
-    volumes:
-      - ./Workshop/atonixcore:/app/atonixcore
-      - ./Workshop/environments:/app/environments
+  atonixcorpvm:
+    image: atonixcorpvm
+    container_name: atonixcorpvm_container
+    environment:
+      MYSQL_DATABASE: atonixcofoodb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: sf9x7ha2tcinn
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      POSTGRES_DB: atonixcorpvmdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: sf9x7ha2tcinn
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
     ports:
-      - "8082:8082"
-    env_file:
-      - .env
-    environment:
-      - DATABASE_URL=postgresql://guxegdsa:atonixcofoobd@db_atonixcorp-system:5432/atonixcofoodb
+      - "2222:2222"
+      - "6379:6379"
+      - "13308:3306"   # Port for MySQL
+      - "15432:5432"
+      - "51327:80"
+      - "50121:8080"
+      - "59876:59876"
     depends_on:
-      - db_atonixcorp-system
+      - mysql
+      - postgres
 
-  db_atonixcorp-system:
-    image: docker.io/library/postgres:17  # Use PostgreSQL 17
-    volumes:
-      - db_data_atonixcorp-system:/var/lib/postgresql/data
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container
     environment:
-      POSTGRES_DB: atonixcofoodb
-      POSTGRES_USER: guxegdsa
-      POSTGRES_PASSWORD: atonixcofoobd
+      MYSQL_ROOT_PASSWORD: sf9x7ha2tcinn
+      MYSQL_DATABASE: atonixcofoodb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: sf9x7ha2tcinn
+    ports:
+      - "13308:3306"   # Port for MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: sf9x7ha2tcinn
+      POSTGRES_DB: atonixcorpvmdb
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  db_data_atonixcorp-system:
+  mysql_data:
+  postgres_data:

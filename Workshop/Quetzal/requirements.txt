@@ -6,9 +6,7 @@ channels
 django-redis
 celery
 redis
-numpy
-pandas
-matplotlib
+dask
 seaborn
 scipy
 statsmodels
@@ -23,8 +21,6 @@ xgboost
 qiskit
 qutip
 boto3
-google-cloud-storage
-azure-storage-blob
 paramiko
 requests
 flask
@@ -47,9 +43,11 @@ qiskit-nature
 qiskit-ibm-catalog
 qiskit-aer
 pyscf
-azure-iot-device
 biopython
 sqlalchemy
 Babel
-kaggle
 flask_sqlalchemy
+sendgrid
+ngcsdk
+spacepy
+MDAnalysis

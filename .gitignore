@@ -31,4 +31,5 @@ target/
 dist/
 build/
 
-myenv/
+myenv/sendgrid.env
+sendgrid.env

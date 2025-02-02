@@ -1,5 +1,4 @@
-# app.py
-
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from shorty import create_app
@@ -7,7 +6,7 @@ from shorty import create_app
 app = Flask(__name__)
 
 # Configure the SQLAlchemy part of the app instance
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:sf9x7ha2tcinn@localhost/atonixcorpvmdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://admin:sf9x7ha2tcinn@localhost/atonixcorpvmdb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Create the SQLAlchemy db instance
