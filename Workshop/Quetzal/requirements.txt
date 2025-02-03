@@ -51,3 +51,6 @@ sendgrid
 ngcsdk
 spacepy
 MDAnalysis
+opentelemetry-sdk>=1.18.0,<2
+qiskit-serverless>=0.18.0,<0.19.0
+opentelemetry-semantic-conventions>=0.46b0,<1
