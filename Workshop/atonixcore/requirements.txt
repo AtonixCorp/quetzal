@@ -22,5 +22,5 @@ django-storages
 django-crispy-forms
 dj_database_url
 Pillow
-mysqlclient
+
 

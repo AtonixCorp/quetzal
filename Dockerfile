@@ -1,4 +1,20 @@
-FROM python:3.9-slim
+# Build stage
+FROM nvcr.io/nvidia/nvhpc:25.1-devel-cuda_multi-ubuntu22.04 AS build
+
+# Build CloverLeaf
+RUN mkdir /source && \
+    cd /source && \
+    git clone https://github.com/UoB-HPC/CloverLeaf-OpenACC.git && \
+    cd CloverLeaf-OpenACC && \
+    make COMPILER=PGI FLAGS_PGI="-Mpreprocess -fast -acc -Minfo=acc -gpu=ccall -tp=px"
+
+# Runtime stage
+FROM nvcr.io/nvidia/nvhpc:25.1-runtime-cuda11.8-ubuntu22.04
+
+COPY --from=build /source/CloverLeaf-OpenACC/clover_leaf /opt/CloverLeaf-OpenACC/bin/
+COPY --from=build /source/CloverLeaf-OpenACC/InputDecks /opt/CloverLeaf-OpenACC/InputDecks
+
+ENV PATH=/opt/CloverLeaf-OpenACC/bin:$PATH
 
 # Set working directory
 WORKDIR /app
@@ -32,10 +48,6 @@ RUN curl -fsSL -o Miniconda3-latest-Linux-x86_64.sh https://repo.anaconda.com/mi
 # Set up the environment variables for Conda
 ENV PATH="/opt/conda/bin:$PATH"
 
-# Create Conda environment and install dependencies from conda-forge
-RUN /opt/conda/bin/conda create -n atonixenv -y && \
-    /opt/conda/bin/conda install -n atonixenv -y -c conda-forge sunpy astropy scipy numpy matplotlib pandas
-
 # Copy requirement files
 COPY Workshop/atonixcore/requirements.txt /app/Workshop/atonixcore/requirements.txt
 COPY Workshop/Quetzal/requirements.txt /app/Workshop/Quetzal/requirements.txt
@@ -48,16 +60,11 @@ RUN pip install -r /app/Workshop/atonixcore/requirements.txt
 RUN pip install -r /app/Workshop/Quetzal/requirements.txt
 
 # Copy application files
-COPY Workshop/atonixcore/manage.py /app/atonixcore/manage.py
-COPY Workshop/Quetzal/app.py /app/Quetzal/app.py
+COPY Workshop/atonixcore /app/Workshop/atonixcore
+COPY Workshop/Quetzal /app/Workshop/Quetzal
 
 # Enable Apache mod_wsgi
 RUN a2enmod wsgi
-
-
-# Copy and run the robotic and HPC setup script
-COPY setup_robotech.sh /app/setup_robotech.sh
-RUN chmod +x /app/setup_robotech.sh && /app/setup_robotech.sh
 
 # Copy Supervisor configuration file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -65,6 +72,9 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Copy the start_services.sh script
 COPY start_services.sh /app/start_services.sh
 RUN chmod +x /app/start_services.sh
+
+# Copy README file with usage instructions
+COPY README.md /app/README.md
 
 # Expose required ports
 EXPOSE 2222 6379 3306 5432 80 8080 59876

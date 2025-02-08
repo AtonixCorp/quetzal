@@ -1,23 +1,24 @@
-# Use an appropriate Node.js base image
-FROM node:14
 
-# Set the working directory
-WORKDIR /usr/src/app
+# Use a Node.js base image
+FROM node:23.7.0-bookworm
 
-# Update npm to the latest version
-RUN npm install -g npm@11.0.0
+# Set the working directory in the container
+WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy the package.json and package-lock.json files
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --force
 
-# Copy the rest of the application code
+# Copy the rest of the application files
 COPY . .
 
-# Expose the application port
+# Build the React app
+RUN npm run build
+
+# Expose port 3000
 EXPOSE 3000
 
-# Start the application
+# Define the command to run the app
 CMD ["npm", "start"]
