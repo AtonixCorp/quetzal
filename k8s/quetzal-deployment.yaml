@@ -56,10 +56,12 @@ spec:
   selector:
     app: quetzal
   ports:
-  - protocol: TCP
+  - name: http
+    protocol: TCP
     port: 59876
     targetPort: 5000  
-  - protocol: TCP
+  - name: jupyter
+    protocol: TCP
     port: 8889
     targetPort: 8888  
   type: LoadBalancer

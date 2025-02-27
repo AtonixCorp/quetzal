@@ -51,4 +51,5 @@ dask[complete]
 numba
 jupyter
 notebook
+seaborn
 
