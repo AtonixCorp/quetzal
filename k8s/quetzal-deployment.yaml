@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: atonixcorpvm
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quetzal
+  namespace: atonixcorpvm
+  labels:
+    app: quetzal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quetzal
+  template:
+    metadata:
+      labels:
+        app: quetzal
+    spec:
+      imagePullSecrets:
+      - name: guxegdsa-pull-secret
+      containers:
+      - name: atonixcorpvm
+        image: quay.io/atonixdev/quetzal:latest
+        ports:
+        - containerPort: 59876
+        - containerPort: 59876
+        env:
+        - name: DB_HOST
+          value: "atonixcorpvm-postgresql"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_USER
+          value: "atonixdevmaster"
+        - name: DB_PASSWORD
+          value: "sf9x7ha2tcinn"
+        - name: DB_NAME
+          value: "atonixcorpk8sdb"
+        volumeMounts:
+        - name: app-storage
+          mountPath: /app
+      volumes:
+      - name: app-storage
+        persistentVolumeClaim:
+          claimName: app-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quetzal-service
+  namespace: atonixcorpvm
+spec:
+  selector:
+    app: quetzal
+  ports:
+  - protocol: TCP
+    port: 59876
+    targetPort: 5000  
+  - protocol: TCP
+    port: 8889
+    targetPort: 8888  
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app-pvc
+  namespace: atonixcorpvm
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
