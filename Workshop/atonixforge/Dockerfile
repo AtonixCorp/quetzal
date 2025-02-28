@@ -1,6 +1,16 @@
-
 # Use a Node.js base image
 FROM node:23.7.0-bookworm
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    pkg-config \
+    default-libmysqlclient-dev \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    cargo \
+    npm
 
 # Set the working directory in the container
 WORKDIR /app

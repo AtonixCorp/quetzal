@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: docker.io/library/mysql:8.0
+        ports:
+        - containerPort: 3307
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "sf9x7ha2tcinn"
+        - name: MYSQL_DATABASE
+          value: "atonixcorpinsightdb"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+    - protocol: TCP
+      port: 3307
+      targetPort: 3307
+  type: ClusterIP

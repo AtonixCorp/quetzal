@@ -27,7 +27,6 @@ spec:
         image: quay.io/atonixdev/quetzal:latest
         ports:
         - containerPort: 59876
-        - containerPort: 59876
         env:
         - name: DB_HOST
           value: "atonixcorpvm-postgresql"
@@ -59,11 +58,11 @@ spec:
   - name: http
     protocol: TCP
     port: 59876
-    targetPort: 5000  
+    targetPort: 59876
   - name: jupyter
     protocol: TCP
     port: 8889
-    targetPort: 8888  
+    targetPort: 8889
   type: LoadBalancer
 ---
 apiVersion: v1

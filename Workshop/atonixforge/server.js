@@ -1,18 +1,40 @@
-// filepath: server.js
 const express = require('express');
-const cors = require('cors');
+const mysql = require('mysql2');
 const app = express();
+const port = 5000;
 
-app.use(cors());
-
-app.get('/api/posts', (req, res) => {
-  res.json([{ id: 1, title: 'Post 1' }, { id: 2, title: 'Post 2' }]);
+// Create a connection to the database
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'phmx4ky817inn',
+  database: 'atonixforgedb'
 });
 
-app.get('/api/comments', (req, res) => {
-  res.json([{ id: 1, content: 'Comment 1' }, { id: 2, content: 'Comment 2' }]);
+// Connect to the database
+db.connect(err => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    return;
+  }
+  console.log('Connected to the database');
 });
 
-app.listen(8000, () => {
-  console.log('Server is running on port 8000');
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+// Define a simple route to fetch data
+app.get('/api/data', (req, res) => {
+  db.query('SELECT * FROM atonixcorp_admin', (err, results) => {
+    if (err) {
+      res.status(500).send('Error fetching data');
+      return;
+    }
+    res.json(results);
+  });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });

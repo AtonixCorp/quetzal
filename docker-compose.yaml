@@ -1,57 +1,56 @@
 version: '3.8'
 
 services:
-  atonixcorpvm:
-    image: atonixcorpvm
-    container_name: atonixcorpvm_container
-    environment:
-      MYSQL_DATABASE: atonixcofoodb
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: sf9x7ha2tcinn
-      MYSQL_HOST: mysql
-      MYSQL_PORT: 3306
-      POSTGRES_DB: atonixcorpvmdb
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: sf9x7ha2tcinn
-      POSTGRES_HOST: postgres
-      POSTGRES_PORT: 5432
+  frontend:
+    image: docker.io/ofidohubvm/atonixforge:latest
+    container_name: atonixforge
     ports:
-      - "2222:2222"
-      - "6379:6379"
-      - "13308:3306"   # Port for MySQL
-      - "15432:5432"
-      - "51327:80"
-      - "50121:8080"
-      - "59876:59876"
+      - "3002:3002"
     depends_on:
-      - mysql
-      - postgres
+      - backend
 
-  mysql:
-    image: mysql:latest
-    container_name: mysql_container
+  backend:
+    image: docker.io/ofidohubvm/atonixinsight:latest
+    container_name: atonixinsight
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: root
+      DB_PASSWORD: sf9x7ha2tcinn
+      DB_NAME: atonixcorpinsightdb
+    depends_on:
+      - db
+
+  quetzal:
+    image: quay.io/atonixdev/quetzal:latest
+    container_name: atonixcorpvm
+    ports:
+      - "59876:59876"  
+    environment:
+      QUETZAL_ENV_VAR1: value1
+      QUETZAL_ENV_VAR2: value2
+    volumes:
+      - ./local/share/container/storage:/root/.local/share/container/storage
+    depends_on:
+      - quetzal_db
+
+  db:
+    image: docker.io/library/mysql:8.0
+    container_name: atonixinsightdb
     environment:
       MYSQL_ROOT_PASSWORD: sf9x7ha2tcinn
-      MYSQL_DATABASE: atonixcofoodb
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: sf9x7ha2tcinn
+      MYSQL_DATABASE: atonixcorpinsightdb
     ports:
-      - "13308:3306"   # Port for MySQL
-    volumes:
-      - mysql_data:/var/lib/mysql
+      - "3307:3307"
 
-  postgres:
-    image: postgres:latest
-    container_name: postgres_container
+  quetzal_db:
+    image: docker.io/library/postgres:latest
+    container_name: quetzal_db
     environment:
-      POSTGRES_USER: admin
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: sf9x7ha2tcinn
-      POSTGRES_DB: atonixcorpvmdb
+      POSTGRES_DB: atonixcorpquetzaldb
     ports:
-      - "15432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  mysql_data:
-  postgres_data:
+      - "5433:5433"

@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: atonixforge-deployment
-  namespace: coreoperatorgo-system
+  name: atonixforge-deployments
+  namespace: atonixcorpvm
 spec:
   replicas: 1
   selector:
@@ -15,10 +15,22 @@ spec:
     spec:
       containers:
       - name: atonixforge
-        image: ofidohubvm/atonixforge:latest
+        image: docker.io/ofidohubvm/atonixforge:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3002
       imagePullSecrets:
-      - name: myregistrykey
-      - name: mynewregistrykey
-      - name: mygithubregistrykey
+      - name: mydockerkeyring
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: atonixforge
+  namespace: atonixcorpvm
+spec:
+  selector:
+    app: atonixforge
+  ports:
+    - protocol: TCP
+      port: 3002
+      targetPort: 3002
+  type: LoadBalancer
