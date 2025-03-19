@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: docker.io/ofidohubvm/atonixforge:latest
+    image: ofidohubvm/atonixforge:latest
     container_name: atonixforge
     ports:
       - "3002:3002"
@@ -10,10 +10,10 @@ services:
       - backend
 
   backend:
-    image: docker.io/ofidohubvm/atonixinsight:latest
+    image: ofidohubvm/atonixinsight:latest
     container_name: atonixinsight
     ports:
-      - "8000:8000"
+      - "8001:8001"
     environment:
       DB_HOST: db
       DB_PORT: 5432
@@ -24,7 +24,7 @@ services:
       - db
 
   quetzal:
-    image: quay.io/atonixdev/quetzal:latest
+    image: ofidohubvm/quetzal:latest
     container_name: atonixcorpvm
     ports:
       - "59876:59876"  
