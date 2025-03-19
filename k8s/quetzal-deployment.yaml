@@ -21,10 +21,10 @@ spec:
         app: quetzal
     spec:
       imagePullSecrets:
-      - name: guxegdsa-pull-secret
+      - name: ofidohubvm-pull-secret
       containers:
       - name: atonixcorpvm
-        image: quay.io/atonixdev/quetzal:latest
+        image: ofidohubvm/quetzal:latest
         ports:
         - containerPort: 59876
         env:

@@ -15,11 +15,11 @@ spec:
     spec:
       containers:
       - name: atonixforge
-        image: docker.io/ofidohubvm/atonixforge:latest
+        image: ofidohubvm/atonixforge:latest
         ports:
         - containerPort: 3002
       imagePullSecrets:
-      - name: mydockerkeyring
+      - name: ofidohubvm-pull-secret
 ---
 apiVersion: v1
 kind: Service

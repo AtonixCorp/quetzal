@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: atonixinsight
-        image: docker.io/ofidohubvm/atonixinsight:latest
+        image: ofidohubvm/atonixinsight:latest
         ports:
-        - containerPort: 8000
+        - containerPort: 8001
         env:
         - name: DB_HOST
           value: "db"
@@ -30,4 +30,4 @@ spec:
         - name: DB_NAME
           value: "atonixcorpinsightdb"
       imagePullSecrets:
-      - name: mydockerkeyring
+      - name: ofidohubvm-pull-secret
